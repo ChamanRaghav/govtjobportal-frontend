@@ -34,7 +34,7 @@ export default function JobBoard() {
         }, {});
 
       const response = await axios.get(
-        `http://127.0.0.1:3000/api/jobs?page=${pageNum}`,
+        `https://api.theconnectus.com/api/jobs?page=${pageNum}`,
         { params: filteredFilters }
       );
       const jobRes = response.data.jobs || [];
