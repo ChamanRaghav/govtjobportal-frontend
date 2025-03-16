@@ -1,4 +1,5 @@
 import React from 'react'
+import { formatRelativeDate } from '../../../utils/helper';
 
 function JobsLeftSidebar({jobs = [], selectedJob = {}, setSelectedJob = () => {}, loading=false, lastJobElementRef}) {
     return (
@@ -40,14 +41,14 @@ function JobsLeftSidebar({jobs = [], selectedJob = {}, setSelectedJob = () => {}
                     {/* Dates Section */}
                     <div className='flex justify-between items-center mt-2 text-xs text-gray-600'>
                         <p>
-                            Application Started:{' '}
+                            Posted On:{' '}
                             <strong className='text-gray-800'>
-                                {new Date(job.datePosted).toLocaleDateString()}
+                            {formatRelativeDate(job.datePosted)}
                             </strong>
                         </p>
-                        <p className='text-red-500 font-semibold'>
+                        <p className='text-red-800'>
                             Last Date:{' '}
-                            <strong>
+                            <strong className=' font-bold'>
                                 {new Date(job.applicationLastDate).toLocaleDateString()}
                             </strong>
                         </p>
