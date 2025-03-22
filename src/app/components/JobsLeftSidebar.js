@@ -3,7 +3,7 @@ import { formatRelativeDate } from '../../../utils/helper';
 
 function JobsLeftSidebar({jobs = [], selectedJob = {}, setSelectedJob = () => {}, loading=false, lastJobElementRef}) {
     return (
-        <div className='w-1/3  shadow-lg p-4 overflow-y-auto'>
+        <div className='w-1/3 shadow-lg p-4 overflow-y-auto'>
             {jobs.map((job, index) => (
                 <div
                     key={index}
