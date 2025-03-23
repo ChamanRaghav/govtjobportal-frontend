@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title:
-    'GovtJobAlerts | Latest Government Job Notifications, Results & Admit Cards',
+    'GovtJobsPortal | Latest Government Job Notifications, Results & Admit Cards',
   description:
     'Stay updated with the latest government job notifications, application deadlines, admit cards, and results. GovtJobAlerts provides real-time updates on Sarkari Naukri, PSU jobs, railway jobs, bank jobs, and more. Apply now & never miss an opportunity!',
 };
