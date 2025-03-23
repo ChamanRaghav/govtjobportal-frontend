@@ -4,7 +4,7 @@ function Navbar({filters = {}, setFilters = () => {}}) {
     return (
         <div className='flex justify-between py-4 px-6  blue-background shadow-md'>
             <div className='flex items-center justify-center h-full mr-4'>
-                <h2 className='text-xl font-bold text-white'>GovtJobPortal</h2>
+                <h2 className='text-xl font-bold text-white'>GovtsJobPortal</h2>
             </div>
             <div className='w-full max-w-lg flex items-center gap-3 border border-gray-300 rounded p-3 shadow-sm bg-white focus-within:ring-2 focus-within:ring-blue-500'>
                 <svg
