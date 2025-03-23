@@ -1,31 +1,18 @@
 import React, { useState } from 'react'
-import { FileText, ArrowRight } from 'lucide-react';
+import { FileText, ArrowRight, SquareArrowOutUpRight } from 'lucide-react';
 import JobDetailsSkeleton from '../skeleton/JobDetailsSkeleton';
 
-function JobRightSidebar({selectedJob = {}, }) {
+function JobRightSidebar({ selectedJob = {}, }) {
     const [iframeBlocked, setIframeBlocked] = useState(false)
     return (
-        <div className='w-2/3 p-4 overflow-y-auto'>
+        <div className='w-2/3 p-4 overflow-y-auto h-full'>
             {selectedJob ? (
                 <div className='bg-white p-6 shadow-md rounded-lg'>
-                    <h1 className='text-3xl font-bold text-secondary-alt2'>
-                        {selectedJob.title}
-                    </h1>
                     <div className='flex justify-between'>
-                        <div className='flex justify-items-start'>
-                            <p className='text-lg text-gray-600 mt-2'>
-                                <strong>{selectedJob.organization},</strong>{' '}
-                                <a href={selectedJob.officialURL}>
-                                    <span className='text-sm text-blue-500 underline'>
-                                        {' '}
-                                        {selectedJob.officialURL}
-                                    </span>
-                                </a>{' '}
-                            </p>
-                        </div>
-                        <p>{selectedJob.location && ` - ${selectedJob.location}`}</p>
-
-                        <div className='flex flex-wrap items-center gap-4 mt-3'>
+                        <h1 className='text-3xl font-bold text-secondary-alt2'>
+                            {selectedJob.title}
+                        </h1>
+                        <div className='flex flex-wrap items-center gap-4'>
                             {/* View Notification Link */}
                             <a
                                 href={selectedJob.notificationURL}
@@ -49,28 +36,47 @@ function JobRightSidebar({selectedJob = {}, }) {
                             )}
                         </div>
                     </div>
-                    <p className='text-md text-gray-700 mt-2 font-semibold'>
+                    <div className='flex justify-between'>
+                        <div className='flex justify-items-start  mt-2'>
+                            <p className='text-lg text-gray-600 mr-2'>
+                                <strong>{selectedJob.organization},</strong>{' '}
+
+                            </p>
+                            <a
+                                href={selectedJob.officialURL}
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                className='flex items-center text-blue-600 text-sm font-light underline hover:text-blue-700 transition-all'
+                            >
+                                {selectedJob.officialURL} {' '} <SquareArrowOutUpRight className='w-4 h-4 ml-1' />
+                            </a>
+                        </div>
+                        <p>{selectedJob.location && ` - ${selectedJob.location}`}</p>
+
+
+                    </div>
+                    <p className='text-xl text-gray-700 mt-2 font-light'>
                         <strong>Qualification:</strong>{' '}
-                        {selectedJob.qualification.join(', ')}
+                        <span className='text-xl'>{selectedJob.qualification.join(', ')}</span>
                     </p>
-                    <p className='mt-4 text-gray-700 leading-relaxed italic'>
+                    <p className='mt-4 text-gray-700 leading-relaxed'>
                         {selectedJob.shortDescription}
                     </p>
                     <div className='flex justify-between'>
                         {selectedJob.totalVacancies && (
                             <p className='mt-2 text-gray-700'>
-                                <strong>Total Vacancies:</strong>{' '}
-                                {selectedJob.totalVacancies}
+                                <strong>Vacancies:</strong>{' '}
+                                <span className='text-2xl'>{selectedJob.totalVacancies}</span>
                             </p>
                         )}
                         <p className='mt-2 text-gray-700'>
                             <strong>Application Last Date:</strong>{' '}
-                            {new Date(
+                            <span className='text-2xl'>{new Date(
                                 selectedJob.applicationLastDate
-                            ).toLocaleDateString()}
+                            ).toLocaleDateString()}</span>
                         </p>
                     </div>
-                    <div className='mt-6 border shadow-md rounded-lg overflow-hidden'>
+                    <div className='mt-6 border shadow-md rounded-lg overflow-visible'>
                         {iframeBlocked ? (
                             <a
                                 href={selectedJob.notificationURL}

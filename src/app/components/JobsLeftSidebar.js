@@ -26,7 +26,7 @@ function JobsLeftSidebar({jobs = [], selectedJob = {}, setSelectedJob = () => {}
                         <span>{job.title}</span>
                         {job.totalVacancies && (
                             <span className='text-sm font-medium text-gray-600'>
-                                {job.totalVacancies} Posts
+                                <span className='font-bold'>{job.totalVacancies}</span> {job.totalVacancies > 1 ? 'Posts' : 'Post'}
                             </span>
                         )}
                     </h3>
